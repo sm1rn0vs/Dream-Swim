@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа плавания Александра Смирнова</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        nav {
+            background-color: #0066cc;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #004d99;
+        }
+        
+        .hero {
+            background: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: #0066cc;
+        }
+        
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #0066cc;
+        }
+        
+        .qualifications {
+            background-color: #f0f8ff;
+        }
+        
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .qualification-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .qualification-card i {
+            font-size: 3rem;
+            color: #0066cc;
+            margin-bottom: 1.5rem;
+        }
+        
+        .qualification-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .programs {
+            background-color: white;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .program-card-content {
+            padding: 20px;
+        }
+        
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #0066cc;
+        }
+        
+        .program-card .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 1rem 0;
+        }
+        
+        .testimonials {
+            background-color: #f0f8ff;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card .quote {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-card .author {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        footer {
+            background-color: #0066cc;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Школа плавания Александра Смирнова</div>
+            <div class="tagline">Профессиональное обучение плаванию для детей и взрослых</div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">О школе</a></li>
+                <li><a href="#qualifications">Квалификация</a></li>
+                <li><a href="#programs">Программы</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Научитесь плавать правильно</h1>
+            <p>Индивидуальный подход от кандидата педагогических наук, мастера спорта по плаванию с 25-летним тренерским стажем</p>
+            <a href="#contact" class="btn">Записаться на занятие</a>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О школе</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1584466977773-e625c37cdd50?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Александр Смирнов">
+                </div>
+                <div class="about-text">
+                    <h3>Александр Смирнов</h3>
+                    <p>Кандидат педагогических наук, мастер спорта по плаванию, тренер с 25-летним стажем работы с детьми и взрослыми.</p>
+                    <p>Моя школа плавания предлагает профессиональное обучение всем стилям плавания: кроль на груди и спине, брасс, баттерфляй. Я работаю как с начинающими, так и с опытными пловцами, помогая совершенствовать технику и достигать спортивных результатов.</p>
+                    <p>В основе моей методики - научный подход к обучению, индивидуальная работа с каждым учеником и внимание к деталям. За годы работы я подготовил более 50 кандидатов в мастера спорта и сотни людей, которые теперь уверенно чувствуют себя в воде.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="qualifications" class="qualifications">
+        <div class="container">
+            <h2 class="section-title">Квалификация и достижения</h2>
+            <div class="qualifications-grid">
+                <div class="qualification-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Кандидат педагогических наук</h3>
+                    <p>Автор научных работ по методике обучения плаванию и спортивной подготовке</p>
+                </div>
+                <div class="qualification-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Мастер спорта по плаванию</h3>
+                    <p>Многократный призер и победитель всероссийских и международных соревнований</p>
+                </div>
+                <div class="qualification-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>25 лет тренерского стажа</h3>
+                    <p>Опыт работы с детьми от 4 лет и взрослыми любого уровня подготовки</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2 class="section-title">Программы обучения</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Обучение детей">
+                    <div class="program-card-content">
+                        <h3>Обучение детей (4-12 лет)</h3>
+                        <p>Программа адаптирована для детей разного возраста и уровня подготовки. Игровая методика, постепенное освоение водной среды, постановка правильной техники.</p>
+                        <div class="price">от 1 500 руб./занятие</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Обучение взрослых">
+                    <div class="program-card-content">
+                        <h3>Обучение взрослых</h3>
+                        <p>Индивидуальный подход для тех, кто хочет научиться плавать или улучшить свою технику. Преодоление страха воды, освоение всех стилей плавания.</p>
+                        <div class="price">от 2 000 руб./занятие</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Спортивная подготовка">
+                    <div class="program-card-content">
+                        <h3>Спортивная подготовка</h3>
+                        <p>Для тех, кто хочет достичь спортивных результатов. Техническая, тактическая и физическая подготовка, участие в соревнованиях.</p>
+                        <div class="price">от 2 500 руб./занятие</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы учеников</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"Александр - потрясающий тренер! За полгода занятий я научилась не только уверенно держаться на воде, но и освоила три стиля плавания. Его индивидуальный подход и внимание к деталям действительно дают результаты."</p>
+                    <p class="author">- Марина, 32 года</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Мой сын занимается у Александра уже третий год. Сначала боялся воды, а теперь участвует в соревнованиях! Тренер умеет найти подход к детям, сочетая требовательность с доброжелательностью."</p>
+                    <p class="author">- Ольга, мама 9-летнего Дениса</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Как профессиональный тренер, Александр помог мне исправить технические ошибки, которые мешали прогрессировать. После его рекомендаций значительно улучшились результаты на соревнованиях."</p>
+                    <p class="author">- Артем, КМС по плаванию</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты и запись</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Интересующая программа</label>
+                        <select id="program" name="program">
+                            <option value="children">Обучение детей</option>
+                            <option value="adults">Обучение взрослых</option>
+                            <option value="sport">Спортивная подготовка</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Дополнительная информация</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">Школа плавания Александра Смирнова</div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2023 Школа плавания Александра Смирнова. Все права защищены.</p>
+            <p>Телефон: +7 (967) 564-30-27 | Email: mchlsmirnoff@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
